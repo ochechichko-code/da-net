@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Да или Нет — онлайн гадание + психоматрица Пифагора по дате рождения</title>
+  <meta name="description" content="Бесплатное онлайн гадание Да или Нет на любой вопрос + расчёт квадрата Пифагора (психоматрицы) по дате рождения с расшифровкой. Современно, быстро, без регистрации." />
+  <meta name="keywords" content="да или нет, онлайн гадание, психоматрица пифагора, квадрат пифагора, расчет по дате рождения, нумерология, гадание онлайн" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0b1a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Да или Нет + Психоматрица Пифагора" />
+  <meta property="og:description" content="Онлайн гадание Да/Нет и расчёт квадрата Пифагора по дате рождения с расшифровкой." />
+  <meta property="og:site_name" content="Да или Нет" />
+  <meta property="og:url" content="https://da-net.example/" />
+
+  <link rel="canonical" href="https://da-net.example/" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Да или Нет",
+    "url": "https://da-net.example/",
+    "description": "Онлайн гадание Да или Нет и расчёт психоматрицы Пифагора по дате рождения.",
+    "inLanguage": "ru"
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">Да·Нет</span>
+      </a>
+      <nav class="nav">
+        <a href="#yesno" class="nav-link">Да или Нет</a>
+        <a href="#matrix" class="nav-link">Психоматрица</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ ДА ИЛИ НЕТ ============ -->
+    <section class="section hero" id="yesno">
+      <div class="container">
+        <div class="hero-copy">
+          <p class="kicker">Онлайн гадание</p>
+          <h1>Да или Нет</h1>
+          <p class="subtitle">
+            Загадай вопрос, на который можно честно ответить «да» или «нет», и получи мгновенный ответ.
+          </p>
+        </div>
+
+        <div class="card oracle-card">
+          <div class="question-row">
+            <input
+              type="text"
+              id="question"
+              class="input"
+              maxlength="120"
+              placeholder="Твой вопрос (необязательно)…"
+              autocomplete="off"
+            />
+            <button id="askBtn" class="btn btn-primary" type="button">Спросить</button>
+          </div>
+
+          <div class="orb-wrap" id="orbWrap">
+            <div class="orb" id="orb">
+              <div class="orb-face" id="orbFace"><span class="orb-hint">?</span></div>
+              <div class="orb-shine"></div>
+            </div>
+          </div>
+
+          <div class="answer-panel" id="answerPanel" hidden>
+            <p class="answer-question" id="answerQuestion"></p>
+            <p class="answer-text" id="answerText"></p>
+          </div>
+
+          <p class="fine">Ответ даёт генератор случайных чисел — для развлечения. Решения принимай сам.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ПСИХОМАТРИЦА ============ -->
+    <section class="section" id="matrix">
+      <div class="container">
+        <div class="hero-copy center">
+          <p class="kicker">Нумерология</p>
+          <h2>Психоматрица Пифагора</h2>
+          <p class="subtitle">
+            Введи дату рождения — получим квадрат Пифагора: сильные и слабые стороны характера по твоим цифрам.
+          </p>
+        </div>
+
+        <div class="card matrix-card">
+          <div class="question-row">
+            <input type="date" id="birthdate" class="input input-date" max="2100-12-31" />
+            <button id="calcBtn" class="btn btn-primary" type="button">Рассчитать</button>
+          </div>
+          <p class="err" id="matrixErr" hidden></p>
+
+          <div id="matrixResult" hidden>
+            <!-- рабочие числа -->
+            <div class="worknums" id="workNums"></div>
+
+            <!-- квадрат -->
+            <div class="square-wrap">
+              <div class="square" id="square"></div>
+              <div class="square-legend">
+                <p><span class="legend-dot"></span> стабильная линия</p>
+                <p><span class="legend-dot faint"></span> слабая линия</p>
+              </div>
+            </div>
+
+            <!-- пояснения по клеткам -->
+            <h3 class="block-title">Что означают цифры</h3>
+            <div class="cell-grid" id="cellExpl"></div>
+
+            <!-- линии -->
+            <h3 class="block-title">Линии матрицы</h3>
+            <div class="line-grid" id="lineExpl"></div>
+
+            <!-- числа -->
+            <h3 class="block-title">Рабочие числа</h3>
+            <div class="num-grid" id="numExpl"></div>
+
+            <p class="fine center">Это интерпретация по классической школе — не наука, а взгляд на себя.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Да·Нет — онлайн-инструменты для развлечения и самопознания.</p>
+        <p class="muted">2026 · Не является научным или медицинским источником.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- СЮДА ПОТОМ ВСТАВИМ КОД РЕКЛАМНОГО БЛОКА -->
+  <script src="js/app.js"></script>
+</body>
+</html>
