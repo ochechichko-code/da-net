@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://da-net.example/sitemap.xml
+Sitemap: https://ochechichko-code.github.io/da-net/sitemap.xml
